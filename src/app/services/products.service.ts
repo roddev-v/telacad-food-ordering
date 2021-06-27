@@ -14,8 +14,8 @@ export class ProductsService {
       .collection('restaurant')
       .doc('menu')
       .ref.get();
-    const items = res.data()['items'];
-    console.log(res.data()['items']);
+    const items = res.data().items;
+    //console.log(res.data()['items']);
     return plainToClass(ProductModel, items as ProductModel[]);
   }
 }
