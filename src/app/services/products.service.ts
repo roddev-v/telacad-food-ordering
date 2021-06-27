@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {ProductModel} from '../models/product.model';
-import {plainToClass} from 'class-transformer';
-import {environment} from '../../environments/environment';
+
+import { ProductModel } from '../models/product.model';
+import { plainToClass } from 'class-transformer';
+
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable()
 export class ProductsService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private fireStore: AngularFirestore) {}
 
   async get(): Promise<ProductModel[]> {
-    const res = await this.http.get(environment.apiURL).toPromise();
-    return plainToClass(ProductModel, res as Array<any>);
+    const res = await this.fireStore
+      .collection('restaurant')
+      .doc('menu')
+      .ref.get();
+    const items = res.data()['items'];
+    console.log(res.data()['items']);
+    return plainToClass(ProductModel, items as ProductModel[]);
   }
 }

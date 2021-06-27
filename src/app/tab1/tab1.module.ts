@@ -5,18 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
-import {ProductsService} from '../services/products.service';
+import { ProductsService } from '../services/products.service';
+import { ProductComponent } from '../components/product/product.component';
 
 @NgModule({
-  imports: [
-    IonicModule,
-    CommonModule,
-    FormsModule,
-    Tab1PageRoutingModule
-  ],
-  providers: [
-    ProductsService
-  ],
-  declarations: [Tab1Page]
+  imports: [IonicModule, CommonModule, FormsModule, Tab1PageRoutingModule],
+  providers: [ProductsService],
+  declarations: [Tab1Page, ProductComponent],
 })
 export class Tab1PageModule {}

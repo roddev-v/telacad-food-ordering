@@ -1,8 +1,8 @@
 export class ProductModel {
   id: number;
-  title: string;
+  name: string;
   price: number;
   description: string;
-  category: string;
+  rating: string;
   image: string;
 }

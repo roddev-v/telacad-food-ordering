@@ -1,8 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Products
-    </ion-title>
+    <ion-title> Products </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,21 +11,17 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-card *ngFor="let product of products">
-    <div class="img-container">
-      <img style="max-width: 50%" [src]="product.image">
-    </div>
-    <ion-card-header>
-      <ion-card-subtitle>{{product.category}}</ion-card-subtitle>
-      <ion-card-title>{{product.title}}</ion-card-title>
-    </ion-card-header>
-
-    <ion-card-content>
-      {{product.description}}
-      <span>
-        <h3 style="display: inline-block">{{product.price}}</h3> $
-      </span>
-    </ion-card-content>
-  </ion-card>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col
+        size-sm="2"
+        size-md="6"
+        size-lg="4"
+        size-xl="4"
+        *ngFor="let product of products"
+      >
+        <app-product [product]="product"></app-product>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
