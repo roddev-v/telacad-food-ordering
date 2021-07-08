@@ -18,4 +18,18 @@ export class ProductsService {
     //console.log(res.data()['items']);
     return plainToClass(ProductModel, items as ProductModel[]);
   }
+
+  async getOne(id: number): Promise<any> {
+    const res = await this.fireStore
+      .collection('restaurant')
+      .doc('menu')
+      .ref.get();
+    const itemProduct = (res.data() as any)?.items.find(
+      (item) => item.id === id
+    );
+    console.log(itemProduct);
+    const itemResult = plainToClass(ProductModel, itemProduct);
+
+    return itemResult;
+  }
 }

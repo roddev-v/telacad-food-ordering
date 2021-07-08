@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {ProductsService} from '../services/products.service';
-import {ProductModel} from '../models/product.model';
+import { Component, Input, OnInit } from '@angular/core';
+import { ProductsService } from '../services/products.service';
+import { ProductModel } from '../models/product.model';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  styleUrls: ['tab1.page.scss'],
 })
-export class Tab1Page implements OnInit{
+export class Tab1Page implements OnInit {
   products: ProductModel[] = [];
 
   constructor(private productsService: ProductsService) {}
@@ -15,5 +15,4 @@ export class Tab1Page implements OnInit{
   async ngOnInit(): Promise<void> {
     this.products = await this.productsService.get();
   }
-
 }

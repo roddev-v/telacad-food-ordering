@@ -1,8 +1,6 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+  <ion-toolbar color="primary">
+    <ion-title> Orders </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,6 +10,12 @@
       <ion-title size="large">Tab 2</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let p of productServices.cart">
+        {{p}}
+        <app-product [product]="p"></app-product>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -1,5 +1,5 @@
 <ion-card style="height: 100%">
-  <img [src]="product.image" />
+  <img [src]="product.image" (click)="showProductDetails()" />
   <ion-card-header>
     <ion-card-subtitle>{{ product.name }}</ion-card-subtitle>
     <ion-card-title>{{ product.name }}</ion-card-title>
@@ -18,7 +18,11 @@
       </ion-chip>
     </div>
 
-    <ion-button shape="round" size="small" color="secondary"
+    <ion-button
+      (click)="orderNow()"
+      shape="round"
+      size="small"
+      color="secondary"
       >Order Now</ion-button
     >
   </div>

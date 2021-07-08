@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{product.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col
+        size-sm="8"
+        size-md="6"
+        size-lg="4"
+        size-xl="4"
+        class="ion-margin"
+      >
+        <ion-card style="height: 100%">
+          <img [src]="product.image" />
+          <ion-card-header>
+            <ion-card-subtitle>{{ product.name }}</ion-card-subtitle>
+            <ion-card-title>{{ product.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content> {{ product.description }} </ion-card-content>
+          <div class="product-container">
+            <div class="inner-product">
+              <ion-chip color="secondary">
+                <ion-label>
+                  <span>PRICE:</span> {{ product.price }} RON</ion-label
+                >
+              </ion-chip>
+
+              <ion-chip color="primary">
+                <ion-label
+                  ><span>Rating:</span> {{ product.rating }} Stars</ion-label
+                >
+              </ion-chip>
+            </div>
+
+            <ion-button shape="round" size="small" color="secondary"
+              >Order Now</ion-button
+            >
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
