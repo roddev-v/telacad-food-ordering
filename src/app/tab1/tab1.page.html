@@ -1,6 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
-    <ion-title> Products </ion-title>
+    <ion-title class="ion-text-center ion-padding-top"> Products </ion-title>
+    <div class="user-items">
+      <p *ngIf="name">Hey {{ name }}!</p>
+      <ion-button (click)="logoutUser()"
+        >Logout
+        <ion-icon slot="end" name="log-out"></ion-icon>
+      </ion-button>
+    </div>
   </ion-toolbar>
 </ion-header>
 

@@ -1,0 +1,43 @@
+<div class="register-wrapper">
+  <ion-item>
+    <ion-text color="primary ion-text-center">
+      <h2>Please Complete Register Form</h2>
+    </ion-text>
+  </ion-item>
+  <ion-badge *ngIf="error" color="warning">{{ error }}</ion-badge>
+  <ion-content>
+    <form class="ion-margin" [formGroup]="form" (ngSubmit)="registerUser()">
+      <ion-item lines="full">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="username" type="email"></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input formControlName="password" type="password"></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="floating">Confirm Password</ion-label>
+        <ion-input formControlName="passwordcheck" type="password"></ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button
+            [disabled]="form.invalid && passwordValidator()"
+            type="submit"
+            color="danger"
+            expand="block"
+            >Register</ion-button
+          >
+        </ion-col>
+      </ion-row>
+    </form>
+    <ion-text color="primary ion-text-center"
+      >Go to
+      <strong routerLink="/login" routerLinkActive="active"
+        >Login</strong
+      ></ion-text
+    >
+  </ion-content>
+</div>

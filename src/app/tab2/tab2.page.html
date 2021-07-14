@@ -13,7 +13,6 @@
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let p of productServices.cart">
-        {{p}}
         <app-product [product]="p"></app-product>
       </ion-col>
     </ion-row>

@@ -1,0 +1,44 @@
+<div class="container">
+  <ion-item>
+    <ion-text color="primary ion-text-center">
+      <h2>Plese Login To your Account</h2>
+    </ion-text>
+  </ion-item>
+  <div class="ion-text-wrap">
+    <ion-badge *ngIf="errors" color="danger">{{ errors }}</ion-badge>
+  </div>
+
+  <ion-content>
+    <form class="ion-margin" [formGroup]="form" (ngSubmit)="loginUser()">
+      <ion-item lines="full">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="username" type="email"></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+
+      <ion-row class="ion-margin">
+        <ion-col>
+          <ion-button
+            type="submit"
+            color="danger"
+            [disabled]="form.invalid"
+            expand="block"
+            >Login</ion-button
+          >
+        </ion-col>
+      </ion-row>
+    </form>
+    <ion-item class="ion-justify-content-center ion-align-items-center">
+      <ion-text color="primary ion-text-center"
+        >No account?
+        <strong routerLink="/register" routerLinkActive="active"
+          >Create one here</strong
+        ></ion-text
+      >
+    </ion-item>
+  </ion-content>
+</div>

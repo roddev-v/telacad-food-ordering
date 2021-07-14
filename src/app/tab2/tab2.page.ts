@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { classToPlain } from 'class-transformer';
+import { ProductModel } from '../models/product.model';
 
 import { CartService } from '../services/cart.service';
 
@@ -14,7 +15,7 @@ export class Tab2Page implements OnInit {
   async ngOnInit(): Promise<void> {
     const product = await this.cartService.getCartProducts();
 
-    console.log(product);
+    console.log(product, this.cartService.cart);
 
     //this.cartService.cart = [...this.cartService.cart, product];
   }
